@@ -1,0 +1,5 @@
+sf_suds.egg-info*
+*/sf_suds.egg-info/*
+build/*
+dist/*
+*.pyc
