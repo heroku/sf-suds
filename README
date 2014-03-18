@@ -1,3 +1,11 @@
+Patches for Salesforce.com
+============================
+
+Suds Patch for Timezone handling
+--------------------------------
+The standard suds library doesn't parse timezone info properly from Salesforce.com. This version includes some better date handling. You can test for the presence of this version by trying to import suds.sax.date.LocalTimezone and throwing an error if it's not found.
+
+
 OVERVIEW
 
 The "Suds" web services client is a lightweight soap-based client for python
