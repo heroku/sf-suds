@@ -727,7 +727,7 @@ class SoapClient:
             else:
                 return (status, None)
         if self.options.faults:
-            raise Exception((status, reason))
+            raise HttpWebFault(status, reason)
         else:
             return (status, None)
 

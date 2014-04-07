@@ -26,7 +26,7 @@ import sys
 # Project properties
 #
 
-__version__ = '0.4.1'
+__version__ = '0.4.2'
 __build__="Salesforce/GA R699-20100913"
 
 #
@@ -77,6 +77,13 @@ class WebFault(Exception):
             Exception.__init__(self, "Server raised fault: '%s'" % fault.faultstring)
         self.fault = fault
         self.document = document
+
+class HttpWebFault(WebFault):
+    def __init__(self, code, reason):
+        Exception.__init__(self, "Server returned HTTP error [%s]: '%s'" % (str(code), str(reason)))
+        self.status_code = code
+        self.fault = reason
+
 
 #
 # Logging
