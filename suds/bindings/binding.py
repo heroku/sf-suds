@@ -101,7 +101,7 @@ class Binding:
         """
         raise Exception, 'not implemented'
 
-    def get_message(self, method, args, kwargs):
+    def get_message(self, method, args, kwargs, options=None):
         """
         Get the soap message for the specified method, args and soapheaders.
         This is the entry point for creating the outbound soap message.
@@ -115,7 +115,7 @@ class Binding:
         @rtype: L{Document}
         """
 
-        content = self.headercontent(method)
+        content = self.headercontent(method, options=options)
         header = self.header(content)
         content = self.bodycontent(method, args, kwargs)
         body = self.body(content)
@@ -350,7 +350,7 @@ class Binding:
         """
         raise Exception, 'not implemented'
     
-    def headercontent(self, method):
+    def headercontent(self, method, options=None):
         """
         Get the content for the soap I{Header} node.
         @param method: A service method.
@@ -358,12 +358,13 @@ class Binding:
         @return: The xml content for the <body/>
         @rtype: [L{Element},..]
         """
+        options = options or self.options()
         n = 0
         content = []
-        wsse = self.options().wsse
+        wsse = options.wsse
         if wsse is not None:
             content.append(wsse.xml())
-        headers = self.options().soapheaders
+        headers = options.soapheaders
         if not isinstance(headers, (tuple,list,dict)):
             headers = (headers,)
         if len(headers) == 0:

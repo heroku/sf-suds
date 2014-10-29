@@ -605,7 +605,8 @@ class SoapClient:
         timer.start()
         result = None
         binding = self.method.binding.input
-        soapenv = binding.get_message(self.method, args, kwargs)
+        soapenv = binding.get_message(self.method, args, kwargs,
+                                      options=self.options)
         timer.stop()
         metrics.log.debug(
                 "message for '%s' created: %s",
