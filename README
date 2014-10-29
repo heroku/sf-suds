@@ -20,6 +20,8 @@ For details, visit:
 
 RELEASE-NOTES:
 =================================================
+version 0.4.3
+  * Fix to allow cloning suds client to share wsdl info without sharing other state
 
 version 0.3.6 (04-31-09):
   * Change hard coded /tmp/suds to tempfile.gettempdir() and create suds/ on demand.
