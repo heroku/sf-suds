@@ -29,7 +29,7 @@ def basic():
     print 'A(parsed)=\n%s' % a
     assert str(a) == xml
     b = Element('a')
-    b.setText('Me &&amp; &lt;b>my</b> shadow\'s <i>dog</i> love to \'play\' and sing "la,la,la";')
+    b.setText('Me && <b>my</b> shadow\'s <i>dog</i> love to \'play\' and sing "la,la,la";')
     print 'B(encoded)=\n%s' % b
     assert str(b) == xml
     print 'A(text-decoded)=\n%s' % a.getText()
@@ -52,5 +52,5 @@ def cdata():
     print a.getText()
 
 if __name__ == '__main__':
-    #basic()
+    basic()
     cdata()

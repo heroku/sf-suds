@@ -32,7 +32,7 @@ class Encoder:
     """
     
     encodings = \
-        (( '&(?!(amp|lt|gt|quot|apos);)', '&amp;' ),( '<', '&lt;' ),( '>', '&gt;' ),( '"', '&quot;' ),("'", '&apos;' ))
+        (( '&', '&amp;' ),( '<', '&lt;' ),( '>', '&gt;' ),( '"', '&quot;' ),("'", '&apos;' ))
     decodings = \
         (( '&lt;', '<' ),( '&gt;', '>' ),( '&quot;', '"' ),( '&apos;', "'" ),( '&amp;', '&' ))
     special = \
@@ -62,7 +62,7 @@ class Encoder:
         """
         if isinstance(s, basestring) and self.needsEncoding(s):
             for x in self.encodings:
-                s = re.sub(x[0], x[1], s)
+                s = s.replace(x[0], x[1])
         return s
     
     def decode(self, s):
