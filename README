@@ -20,8 +20,11 @@ For details, visit:
 
 RELEASE-NOTES:
 =================================================
+version 0.4.5
+  * Include missing changelog update from previous release
+
 version 0.4.4
-  * Fix xml encoding
+  * Fix XML encoding
 
 version 0.4.3
   * Fix to allow cloning suds client to share wsdl info without sharing other state
