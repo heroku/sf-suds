@@ -26,7 +26,7 @@ import sys
 # Project properties
 #
 
-__version__ = '0.4.3'
+__version__ = '0.4.4'
 __build__="Salesforce/GA R699-20100913"
 
 #
