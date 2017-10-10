@@ -74,13 +74,13 @@ class SoapHeadersNotPermitted(Exception):
 class WebFault(Exception):
     def __init__(self, fault, document):
         if hasattr(fault, 'faultstring'):
-            Exception.__init__(self, "Server raised fault: '%s'" % fault.faultstring)
+            Exception.__init__(self, "Salesforce raised fault: '%s'" % fault.faultstring)
         self.fault = fault
         self.document = document
 
 class HttpWebFault(WebFault):
     def __init__(self, code, reason):
-        Exception.__init__(self, "Server returned HTTP error [%s]: '%s'" % (str(code), str(reason)))
+        Exception.__init__(self, "Salesforce returned HTTP error [%s]: '%s'" % (str(code), str(reason)))
         self.status_code = code
         self.fault = reason
 
